@@ -1,9 +1,22 @@
 <?php
 class Anything
 {
-    static function generate($length)
+    public static function generate($length, $source='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVEXYZ1234567890')
     {
-        return substr('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', mt_rand(0, 50), 1) . substr(md5(time()), 1);
+        $x     = 0;
+        $i     = 0;
+        $final = '';
+
+        $sourceLength = mb_strlen($source, 'utf8') - 1;
+
+        while ($i <= ($length - 1))
+        {
+            $final .= mb_substr($source, rand(0, $sourceLength), 1, CODE_CHARSET);
+
+            $i++;
+        }
+
+        return $final;
     }
 }
 ?>
