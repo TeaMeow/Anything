@@ -18,5 +18,18 @@ class Anything
 
         return $final;
     }
+
+    public static function ggidv8()
+    {
+        $basic = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        $hex   = sprintf('%06X', mt_rand(0, 0xFFFFFF));
+
+        return self::generate(8, $basic)  . '-' .
+               self::generate(4, $basic)  . '-' .
+               self::generate(4, $basic)  . '-' .
+               self::generate(4, $basic)  . '-' .
+               self::generate(12, $basic) . '-' .
+               $hex;
+    }
 }
 ?>
