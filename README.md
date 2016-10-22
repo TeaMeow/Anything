@@ -1,2 +1,2 @@
 # Anything
-隨便 - A class which generate the random strings and based on PHP.
+隨便 - A class for generating random strings, based on PHP.
